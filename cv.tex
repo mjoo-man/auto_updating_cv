@@ -28,6 +28,10 @@
 
 \usepackage{ebgaramond} % Use the EB Garamond font
 
+\addbibresource{publications/journal_articles.bib}
+\addbibresource{publications/conference_papers.bib}
+\addbibresource{publications/presented_abstracts.bib}
+
 %------------------------------------------------
 
 \name{Micah Oevermann} % Your name to appear at the top
@@ -48,7 +52,6 @@
 %----------------------------------------------------------------------------------------
 %	EDUCATION SECTION
 %----------------------------------------------------------------------------------------
-
 \begin{rSection}{Education}
 	
 	\textbf{University of California, Berkeley} \hfill \textit{June 2004} \\ 
@@ -108,6 +111,39 @@
 		Databases & MySQL, PostgreSQL, Microsoft SQL \\
 		Tools & SVN, Vim, Emacs
 	\end{tabular}
+
+\end{rSection}
+
+\pagebreak
+\begin{rSection}{Publications}
+
+\section*{Journal Articles}
+    
+    \nocite{*} % cite all in the bib files
+    
+    \printbibliography[
+    heading=none,
+    type=article
+    ]
+
+\section*{Peer Reviewed Conference Papers}
+    
+    \nocite{*} % cite all in the bib files
+    
+    \printbibliography[
+    heading=none,
+    type=inproceedings
+    ]
+
+\section*{Presented Abstracts}
+    
+    \nocite{*} % cite all in the bib files
+    
+    \printbibliography[
+    heading=none,
+    type=misc
+    ]
+	
 
 \end{rSection}
 
