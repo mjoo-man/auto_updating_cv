@@ -4,16 +4,18 @@
 \newpage
 \cvsection{Publications}
 
+\nocite{*} % cite all in the bib files
 %-------------------------------------------------------------------------------
 % SUBSECTION TITLE
 %-------------------------------------------------------------------------------
 \cvsubsection{Journal Articles}
 
 \begin{refsection}
-    \nocite{Pravecek2025Empirical}
+    
     
     \printbibliography[
-    heading=none, 
+    heading=none,
+    type=article, 
     sorting=ydnt
     ]
 \end{refsection}
@@ -24,14 +26,9 @@
 \cvsubsection{Conference Proceedings}
 
 \begin{refsection}
-    % recent first
-    \nocite{Oevermann2025UR}
-    \nocite{Dravid2024IROS}
-    \nocite{oevermann2024roboball}
-    \nocite{oevermann2024soft}
-    
     \printbibliography[
     heading=none, 
+    type=inproceedings,
     sorting=ydnt
     ]
 \end{refsection}
@@ -39,14 +36,11 @@
 \cvsubsection{Presented Abstracts}
 
 \begin{refsection}
-    % recent first
-    \nocite{Jangale2024ICRA40}
-    \nocite{Dravid2024ASCE}
-    \nocite{Ambrose2023ASCEND}
-    \nocite{Oevermann2023IMC}
+    % recent first these must be done manually
 
     \printbibliography[
-    heading=none, 
+    heading=none,
+    type=conference,
     sorting=none
     ]
 \end{refsection}
