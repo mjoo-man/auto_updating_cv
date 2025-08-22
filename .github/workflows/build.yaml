@@ -24,9 +24,6 @@ jobs:
     - name: Install Python dependencies
       run: pip install scholarly
 
-    - name: Fetch publications from Google Scholar
-      run: python scripts/get_citations.py
-
     - name: Install LaTeX (XeLaTeX + biber)
       run: |
         sudo apt-get update
