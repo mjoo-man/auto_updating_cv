@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Skip if bot triggered # skip if last commit was the bot
+      if: github.actor == 'github-actions[bot]'
+      run: exit 0
+
     - name: Checkout repo
       uses: actions/checkout@v4
 
