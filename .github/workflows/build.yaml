@@ -27,21 +27,23 @@ jobs:
     - name: Fetch publications from Google Scholar
       run: python scripts/get_citations.py
 
-    - name: Install TeX Live
+    - name: Install LaTeX (XeLaTeX + biber)
       run: |
         sudo apt-get update
         sudo apt-get install -y \
-          texlive-latex-base \
+          texlive-xetex \
+          texlive-bibtex-extra \
+          biber \
           texlive-latex-extra \
-          texlive-fonts-recommended \
-          biber
+          texlive-fonts-extra \
+          texlive-latex-recommended
 
-    - name: Build CV
+    - name: Build CV with XeLaTeX
       run: |
-        pdflatex cv.tex
+        xelatex cv.tex
         biber cv
-        pdflatex cv.tex
-        pdflatex cv.tex
+        xelatex cv.tex
+        xelatex cv.tex
 
     - name: Upload PDF artifact
       uses: actions/upload-artifact@v4
