@@ -32,10 +32,21 @@ jobs:
     #       texlive-fonts-extra \
     #       texlive-latex-recommended
 
-    - name: Compile LaTeX document
-      uses: xu-cheng/latex-action@v4
-      with:
-        root_file: cv.tex
+    - name: Install TeX Live
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          texlive-latex-base \
+          texlive-latex-extra \
+          texlive-fonts-recommended \
+          biber
+
+    - name: Build CV
+      run: |
+        pdflatex cv.tex
+        biber cv
+        pdflatex cv.tex
+        pdflatex cv.tex
 
     - name: Upload PDF artifact
       uses: actions/upload-artifact@v4
