@@ -32,7 +32,7 @@ jobs:
     #       texlive-fonts-extra \
     #       texlive-latex-recommended
 
-     -name: Compile LaTeX document
+    - name: Compile LaTeX document
       uses: xu-cheng/latex-action@v4
       with:
         root_file: cv.tex
