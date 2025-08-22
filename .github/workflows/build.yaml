@@ -21,9 +21,6 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Install Python dependencies
-      run: pip install scholarly
-
     - name: Install LaTeX (XeLaTeX + biber)
       run: |
         sudo apt-get update
