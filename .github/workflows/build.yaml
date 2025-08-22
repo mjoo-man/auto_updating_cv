@@ -1,0 +1,64 @@
+name: Build CV
+
+on:
+  schedule:
+    - cron: '0 6 1 1,7 *'  # every Monday at 6 AM UTC
+  workflow_dispatch:       # allow manual trigger
+  push:
+    paths:
+      - cv.tex
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install Python dependencies
+      run: pip install scholarly
+
+    - name: Fetch publications from Google Scholar
+      run: python scripts/get_citations.py
+
+    - name: Install TeX Live
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          texlive-latex-base \
+          texlive-latex-extra \
+          texlive-fonts-recommended \
+          biber
+
+    - name: Build CV
+      run: |
+        pdflatex cv.tex
+        biber cv
+        pdflatex cv.tex
+        pdflatex cv.tex
+
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: CV
+        path: cv.pdf
+
+    - name: Commit updated bib files
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add publications/*.bib
+        git add cv.pdf
+        if git diff --cached --quiet; then
+          echo "No changes to commit"
+        else
+          DATE=$(date -u +"%Y-%m-%d")
+          git commit -m "Auto-update publications on $DATE"
+          git push
+        fi
