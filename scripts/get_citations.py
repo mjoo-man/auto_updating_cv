@@ -54,15 +54,15 @@ for i, pub in enumerate(author['publications']):
     else: 
         print(f"couldnt find a conference or journal in dict keys for")
         print(bib['title'])
-        print("adding it to conferences")
-        collection = conferences
+        # print("adding it to conferences")
+        # collection = conferences
 
     # Build BibTeX entry
     entry = f"@{entry_type}{{{key},\n"
     entry += f"  title = {{{title}}},\n"
     entry += f"  author = {{{authors_str}}},\n"
-    if "venue" in bib:
-        entry += f"  journal = {{{bib['venue']}}},\n"
+    if "journal" in bib:
+        entry += f"  journal = {{{bib['journal']}}},\n"
     if "pub_year" in bib:
         entry += f"  year = {{{bib['pub_year']}}},\n"
     if "volume" in bib:
@@ -71,8 +71,11 @@ for i, pub in enumerate(author['publications']):
         entry += f"  number = {{{bib['number']}}},\n"
     if "pages" in bib:
         entry += f"  pages = {{{bib['pages']}}},\n"
-    if "publisher" in bib:
-        entry += f"  publisher = {{{bib['publisher']}}},\n"
+    if "conference" in bib:
+        entry += f"  booktitle = {{{bib['conference']}}},\n"
+    if ("journal" not in bib) and ("conference" not in bib):
+        entry += f"  booktitle = {{{bib['citation']}}},\n"
+    
     entry += "}\n\n"
 
     collection.append(entry)
