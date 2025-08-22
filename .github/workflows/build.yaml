@@ -1,8 +1,8 @@
 name: Build CV
 
 on:
-  schedule:
-    - cron: '0 6 1 1,7 *'  # every Monday at 6 AM UTC
+  # schedule:
+  #   - cron: '0 6 1 1,7 *'  # every Monday at 6 AM UTC
   workflow_dispatch:       # allow manual trigger
   push:
     paths:
@@ -16,28 +16,27 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
+    # - name: Set up Python
+    #   uses: actions/setup-python@v5
+    #   with:
+    #     python-version: '3.11'
+
+    # - name: Install LaTeX (XeLaTeX + biber)
+    #   run: |
+    #     sudo apt-get update
+    #     sudo apt-get install -y \
+    #       texlive-xetex \
+    #       texlive-bibtex-extra \
+    #       biber \
+    #       texlive-latex-extra \
+    #       texlive-fonts-extra \
+    #       texlive-latex-recommended
+
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v4
       with:
-        python-version: '3.11'
-
-    - name: Install LaTeX (XeLaTeX + biber)
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y \
-          texlive-xetex \
-          texlive-bibtex-extra \
-          biber \
-          texlive-latex-extra \
-          texlive-fonts-extra \
-          texlive-latex-recommended
-
-    - name: Build CV with XeLaTeX
-      run: |
-        xelatex cv.tex
-        biber cv
-        xelatex cv.tex
-        xelatex cv.tex
+        root_file: cv.tex
+        latexmk_use_xelatex: true
 
     - name: Upload PDF artifact
       uses: actions/upload-artifact@v4
