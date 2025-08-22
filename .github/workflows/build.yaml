@@ -13,9 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Skip if bot triggered # skip if last commit was the bot
-      if: github.actor == 'github-actions[bot]'
-      run: exit 0
 
     - name: Checkout repo
       uses: actions/checkout@v4
@@ -31,17 +28,3 @@ jobs:
       with:
         name: CV
         path: cv.pdf
-
-    - name: Commit updated bib files
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add publications/*.bib
-        git add cv.pdf
-        if git diff --cached --quiet; then
-          echo "No changes to commit"
-        else
-          DATE=$(date -u +"%Y-%m-%d")
-          git commit -m "Auto-update publications on $DATE"
-          git push
-        fi
