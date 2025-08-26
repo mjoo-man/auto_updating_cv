@@ -2,9 +2,9 @@
 This repository is my attempt to automate updating the publications portion of my CV with a python web scraper and github actions. 
 
 # How it works
-1. The python script will query my Google Scholar page using a unique ID (found in the scholar profile URL). It will then generate a list of Journal Articles an Conference Proceedings in respective `.bib` files. 
-
-The script assigns `@inprocedings` bibtex markers to conference papers and `@article` markers to journal papers. Presented abstracts are not tracked on scholar so they were done manually with `@misc`.
+1. The python script will query my Google Scholar page using a unique ID (found in the scholar profile URL). It will then generate a list of Journal Articles an Conference Proceedings in respective `.bib` files.
+   
+   The script assigns `@inprocedings` bibtex markers to conference papers and `@article` markers to journal papers. Presented abstracts are not tracked on scholar so they were done manually with `@misc`.
 
 **TODO: Google scholar will reject the query from Github Actions server. for now it can be run locally with the `.bib` files committed and pushed to the repo. Eventually this will be done automatically with gh actions**
 ```sh
