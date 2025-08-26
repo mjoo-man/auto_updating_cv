@@ -1,7 +1,10 @@
 from scholarly import scholarly
 import re
 
-AUTHOR_ID = "lyQ8qi8AAAAJ"
+# author id comes from gogle scholar url
+# \url{https://scholar.google.com/citations?user=lyQ8qi8AAAAJ&hl=en&oi=ao}
+
+AUTHOR_ID = "lyQ8qi8AAAAJ" # ambrose's ID for testing: "W_UXmbQAAAAJ" 
 MY_NAME = ["Micah Oevermann", "Micah J Oevermann", "Micah James Oevermann"]
 
 MINOR_TITLE_WORDS = ["A", "The"]

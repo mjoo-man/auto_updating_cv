@@ -189,7 +189,7 @@
 \DeclareFieldFormat[incollection]{title}{#1\par}
 
 \DeclareBibliographyDriver{article}{%
-  \fontsize{9pt}{1em}\bodyfont%
+  \fontsize{9pt}{1em}%
   \printfield{title}%
   \newblock%
   \printnames{author}%
@@ -209,7 +209,7 @@
 }
 
 \DeclareBibliographyDriver{inproceedings}{%
-  \fontsize{9pt}{1em}\bodyfont%
+  \fontsize{9pt}{1em}%
   \printfield{title}%
   \newblock%
   \printnames{author}%
@@ -227,7 +227,7 @@
 }
 
 \DeclareBibliographyDriver{incollection}{%
-  \fontsize{9pt}{1em}\bodyfont%
+  \fontsize{9pt}{1em}%
   \printfield{title}%
   \newblock%
   \printnames{author}%
@@ -245,7 +245,7 @@
 }
 
 \DeclareBibliographyDriver{misc}{%
-  \fontsize{9pt}{1em}\bodyfont%
+  \fontsize{9pt}{1em}%
   \printfield{title}%
   \newblock%
   \printnames{author}%
