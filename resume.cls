@@ -45,6 +45,11 @@
 \pagestyle{empty} % Suppress headers and footers on all pages
 
 \usepackage{hyperref}
+
+\usepackage{fontspec}
+\usepackage{lmodern} % ensures Latin Modern is available
+\usepackage{ebgaramond}
+
 %----------------------------------------------------------------------------------------
 %	MARGINS
 %----------------------------------------------------------------------------------------

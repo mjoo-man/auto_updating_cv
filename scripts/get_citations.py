@@ -57,8 +57,8 @@ for i, pub in enumerate(author['publications']):
     else: 
         print(f"couldnt find a conference or journal in dict keys for")
         print(bib['title'])
-        # print("adding it to conferences")
-        # collection = conferences
+        print("adding it to conferences")
+        collection = conferences
 
     # Build BibTeX entry
     entry = f"@{entry_type}{{{key},\n"
