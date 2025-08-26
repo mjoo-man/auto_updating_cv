@@ -15,6 +15,7 @@ jobs:
             texlive-bibtex-extra \
             texlive-fonts-extra \
             texlive-xetex \
+            latexmk \
             biber
 
       - name: Compile CV
