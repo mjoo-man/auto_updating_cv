@@ -12,6 +12,7 @@ python3 scripts/get_citations.py
 ```
 
 # extra packages installed
+installed these to get the pdf to build locally.
 ```sh
 # because I couldnt find the biblatex.sty
 sudo apt update
