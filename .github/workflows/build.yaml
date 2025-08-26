@@ -1,5 +1,9 @@
 name: Build LaTeX document
-on: [push]
+on: 
+  push:
+    paths: # build anytime a bib or tex file changes
+      - '**.tex'
+      - '**.bib'
 jobs:
   build_latex:
     runs-on: ubuntu-latest
