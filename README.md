@@ -1,6 +1,13 @@
 # Auto-Updating CV
 This repository is my attempt to automate updating the publications portion of my CV with a python web scraper and github actions. 
 
+# To use
+1. Edit the `scripts/get_citations.py` with your google scholar ID and your name if you would like is to bold you name in the author lists.
+
+2. run `get_citations.py` using your favorite python method then push the bib files to the repo. 
+
+3. gh actions will build your updated pdf in a few minutes. pull or download from there. 
+
 # How it works
 1. The python script will query my Google Scholar page using a unique ID (found in the scholar profile URL). It will then generate a list of Journal Articles an Conference Proceedings in respective `.bib` files.
    
