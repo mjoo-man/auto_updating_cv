@@ -20,8 +20,7 @@ jobs:
             texlive-fonts-extra \
             texlive-xetex \
             latexmk \
-            biber \ 
-            texlive-fonts-ebgaramond
+            biber 
 
       - name: Compile CV
         run: |
