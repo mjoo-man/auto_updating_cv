@@ -20,11 +20,12 @@ jobs:
             texlive-fonts-extra \
             texlive-xetex \
             latexmk \
-            biber
+            biber \ 
+            fonts-ebgaramond
 
       - name: Compile CV
         run: |
-          latexmk cv.tex 
+          latexmk -pdfxe cv.tex 
           
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
