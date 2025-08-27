@@ -21,7 +21,7 @@ jobs:
             texlive-xetex \
             latexmk \
             biber \ 
-            fonts-ebgaramond
+            texlive-fonts-ebgaramond
 
       - name: Compile CV
         run: |
