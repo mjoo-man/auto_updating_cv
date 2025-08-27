@@ -46,10 +46,6 @@
 
 \usepackage{hyperref}
 
-\usepackage{fontspec}
-\usepackage{lmodern} % ensures Latin Modern is available
-\usepackage{ebgaramond}
-
 %----------------------------------------------------------------------------------------
 %	MARGINS
 %----------------------------------------------------------------------------------------
