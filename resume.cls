@@ -153,6 +153,16 @@
 	\vspace{0.5em} % Vertical whitespace after the end of the list
 }
 
+\newenvironment{rSubsectionWorkList}[4]{ % 4 parameters: company name, year(s) employed, job title and location
+	\textbf{#1} \hfill {#2} % Bold company name and date to the right
+	\ifthenelse{\equal{#3}{}}{}{ % If the third parameter is empty, don't output the job title and location line
+		\\ % Job title and location on a new line
+		\textit{#3} \hfill \textit{#4} % Output job title and location
+	}%
+	
+	\vspace{0.5em} % Vertical whitespace after the end of the list
+}
+
 %-------------------------------------------------------------------------------
 %                Bibliography
 %-------------------------------------------------------------------------------
